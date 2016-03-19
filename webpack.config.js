@@ -50,6 +50,7 @@ const getEntry = function (env) {
 
 const getLoaders = function (env) {
   const loaders = [{ test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint'] },
+                   { test: /\.jsx$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
                    { test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['file']}];
 
   if (env === productionEnvironment ) {
@@ -73,6 +74,9 @@ function getConfig(env) {
       path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
       publicPath: '',
       filename: 'bundle.js'
+    },
+    resolve: {
+      extensions: ['', '.jsx', '.scss', '.js', '.json']
     },
     plugins: getPlugins(env),
     module: {

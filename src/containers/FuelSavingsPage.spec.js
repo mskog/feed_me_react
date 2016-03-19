@@ -1,5 +1,4 @@
 import chai from 'chai';
-import FuelSavingsPage from './FuelSavingsPage';
 
 chai.should();
 
