@@ -1,0 +1,6 @@
+deployment:
+  master:
+    branch: master
+    commands:
+      - npm run build
+      - rsync -avz -e "ssh" dist/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIRECTORY
