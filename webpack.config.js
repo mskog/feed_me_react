@@ -4,6 +4,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const developmentEnvironment = 'development' ;
 const productionEnvironment = 'production';
@@ -17,7 +18,11 @@ const getPlugins = function (env) {
 
   const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS) //Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
+    new webpack.DefinePlugin(GLOBALS),
+    new HtmlWebpackPlugin({
+      template: 'src/index.ejs',
+      inject: 'body'
+    })
   ];
 
   switch (env) {
@@ -73,7 +78,7 @@ function getConfig(env) {
     output: {
       path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
       publicPath: '',
-      filename: 'bundle.js'
+      filename: 'bundle.[hash].js'
     },
     resolve: {
       extensions: ['', '.jsx', '.scss', '.js', '.json']
