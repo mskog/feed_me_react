@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-4">
           <FeedList />
         </div>
       </div>
