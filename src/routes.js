@@ -8,6 +8,8 @@ import App from './components/app';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Feeds} />
-    <Route path="feeds" component={Feed} />
+    <Route path="feeds" component={Feeds}>
+      <Route path=":id" component={Feed} />
+    </Route>
   </Route>
 );
