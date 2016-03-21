@@ -2,14 +2,16 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import FeedList from './feed_list';
 
-class App extends React.Component {
+class Feeds extends React.Component {
   render() {
     return(
-      <div>
-        {this.props.children}
+      <div className="row">
+        <div className="col-md-4">
+          <FeedList />
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default Feeds;

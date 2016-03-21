@@ -18,11 +18,7 @@ const getPlugins = function (env) {
 
   const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS),
-    new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
-      inject: 'body'
-    })
+    new webpack.DefinePlugin(GLOBALS)
   ];
 
   switch (env) {
@@ -30,6 +26,10 @@ const getPlugins = function (env) {
       plugins.push(new ExtractTextPlugin('styles.css'));
       plugins.push(new webpack.optimize.DedupePlugin());
       plugins.push(new webpack.optimize.UglifyJsPlugin());
+      plugins.push(new HtmlWebpackPlugin({
+        template: 'src/index.ejs',
+        inject: 'body'
+      }));
       break;
 
     case developmentEnvironment:
@@ -78,8 +78,8 @@ function getConfig(env) {
     target: env === testEnvironment ? 'node' : 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
     output: {
       path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
-      publicPath: '',
-      filename: 'bundle.[hash].js'
+      publicPath: '/',
+      filename: env === productionEnvironment ? 'bundle.[hash].js' : 'bundle.js'
     },
     resolve: {
       extensions: ['', '.jsx', '.scss', '.js', '.json']
