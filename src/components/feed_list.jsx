@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch'
+import {Preloader} from 'react-materialize';
 
 import FeedListItem from './feed_list_item';
 
@@ -15,7 +16,7 @@ class FeedList extends React.Component {
       )});
     }
     else{
-      return <h3>Fetching</h3>;
+      return <Preloader size="small" />;
     }
 
     return(

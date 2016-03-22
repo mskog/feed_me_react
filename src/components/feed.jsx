@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch'
+import {Preloader} from 'react-materialize';
 
 import FeedEntriesList from './feed_entries_list';
 
@@ -11,7 +12,7 @@ class Feed extends React.Component {
     if (entriesFetch.fulfilled){
       entries = <FeedEntriesList entries={entriesFetch.value['user_feed_entries']} />;
     } else{
-      entries = <h1>Loading</h1>;
+      entries = <div className="center-align"><Preloader size="small" /></div>;
     }
 
     return (
