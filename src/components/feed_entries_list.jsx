@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import List from 'material-ui/lib/lists/list';
-import ListItem from 'material-ui/lib/lists/list-item';
 import FeedEntry from './feed_entry';
 
 class FeedEntriesList extends React.Component {
@@ -11,9 +9,9 @@ class FeedEntriesList extends React.Component {
     )});
 
     return(
-      <List>
+      <div>
         {entries}
-      </List>
+      </div>
     )
   }
 }

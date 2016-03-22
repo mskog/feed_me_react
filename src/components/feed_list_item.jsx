@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
-import { browserHistory } from 'react-router';
-import ListItem from 'material-ui/lib/lists/list-item';
+import { browserHistory, Link } from 'react-router';
 
 class FeedListItem extends React.Component {
-  handleClick(){
-    browserHistory.push(`/feeds/${this.props.id}`)
-  }
-
   render() {
     return (
-      <ListItem primaryText={this.props.title} onClick={this.handleClick.bind(this)}/>
+      <li>
+        <Link to={`/feeds/${this.props.id}`}>
+          <span className='truncate'>{this.props.title}</span>
+        </Link>
+      </li>
     );
   }
 }

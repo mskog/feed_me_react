@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch'
-import List from 'material-ui/lib/lists/list';
-import ListItem from 'material-ui/lib/lists/list-item';
 
 import FeedListItem from './feed_list_item';
 
@@ -21,9 +19,10 @@ class FeedList extends React.Component {
     }
 
     return(
-      <List>
+      <ul className="side-nav fixed">
+        <h5 className="center-align">Feeds</h5>
         {items}
-      </List>
+      </ul>
     )
   }
 }

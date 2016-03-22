@@ -1,23 +1,27 @@
 import React, { PropTypes } from 'react';
-import ListItem from 'material-ui/lib/lists/list-item';
-import {Card, CardHeader, CardText} from 'material-ui/lib/card';
+import { Card, CardHeader, CardTitle } from 'react-materialize';
 
 class FeedEntry extends React.Component {
   render() {
     var image = "";
 
     if(this.props.image !== null){
-      image = <img src={`http://thumbs.picyo.me/200x200/smart/${this.props.image}`} />;
+      image = <img src={`http://thumbs.picyo.me/700x200/smart/${this.props.image}`} />;
     }
 
     return (
-      <Card>
-        <CardHeader title={this.props.title}/>
-        <CardText>
+      <div className="card">
+        <div className="card-image">
           {image}
-          {this.props.summary}
-        </CardText>
-      </Card>
+        </div>
+        <div className="card-content">
+          <a href={this.props.url} target="_blank">
+            <h3 className="card-title truncate">{this.props.title}</h3>
+          </a>
+          <p>{this.props.summary}</p>
+        </div>
+
+      </div>
     );
   }
 }
