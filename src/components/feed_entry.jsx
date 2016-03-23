@@ -6,21 +6,22 @@ class FeedEntry extends React.Component {
     var image = "";
 
     if(this.props.image !== null){
-      image = <img src={`http://thumbs.picyo.me/700x200/smart/${this.props.image}`} />;
+      image = <img className="responsive-img" src={`http://thumbs.picyo.me/300x300/smart/${this.props.image}`} />;
     }
 
     return (
-      <div className="card">
-        <div className="card-image">
-          {image}
+      <div className="card-panel">
+        <div className="row">
+          <div className="col l3 hide-on-med-and-down">
+            {image}
+          </div>
+          <div className="col l9">
+            <a href={this.props.url} target="_blank">
+              <h5 className="truncate">{this.props.title}</h5>
+            </a>
+            <p>{this.props.summary}</p>
+          </div>
         </div>
-        <div className="card-content">
-          <a href={this.props.url} target="_blank">
-            <h3 className="card-title truncate">{this.props.title}</h3>
-          </a>
-          <p>{this.props.summary}</p>
-        </div>
-
       </div>
     );
   }

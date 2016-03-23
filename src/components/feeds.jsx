@@ -12,7 +12,7 @@ class Feeds extends React.Component {
         <main>
           <div className="container">
             <div className="row">
-              <div className="col m12">
+              <div className="col l12">
                 {this.props.children}
               </div>
             </div>
