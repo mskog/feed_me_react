@@ -6,12 +6,18 @@ class Feeds extends React.Component {
   render() {
     return(
       <div>
-        <FeedList />
-        <div className="container">
-          <div className="col m12">
-            {this.props.children}
+        <header>
+          <FeedList />
+        </header>
+        <main>
+          <div className="container">
+            <div className="row">
+              <div className="col m12">
+                {this.props.children}
+              </div>
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     );
   }
