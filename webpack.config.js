@@ -28,7 +28,8 @@ const getPlugins = function (env) {
       plugins.push(new webpack.optimize.UglifyJsPlugin());
       plugins.push(new HtmlWebpackPlugin({
         template: 'src/index.ejs',
-        inject: 'body'
+        inject: 'body',
+        hash: true
       }));
       break;
 
@@ -79,7 +80,7 @@ function getConfig(env) {
     output: {
       path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
       publicPath: '/',
-      filename: env === productionEnvironment ? 'bundle.[hash].js' : 'bundle.js'
+      filename: env === productionEnvironment ? 'bundle.js' : 'bundle.js'
     },
     resolve: {
       extensions: ['', '.jsx', '.scss', '.js', '.json']
