@@ -27,7 +27,7 @@ class Feed extends React.Component {
     var moreButton = '';
 
     if (entriesFetch.fulfilled){
-      entries = <FeedEntriesList entries={entriesFetch.value['user_feed_entries']}/>
+      entries = <FeedEntriesList entries={entriesFetch.value['feed_entries']}/>
       if (this.hasMorePages()) {
         moreButton = <Button onClick={this.nextPage.bind(this)}>More...</Button>;
       }
