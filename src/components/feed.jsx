@@ -6,11 +6,6 @@ import { router, browserHistory, Link } from 'react-router';
 import FeedEntriesList from './feed_entries_list';
 
 class Feed extends React.Component {
-
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
-
   hasMorePages(){
     const {entriesFetch} = this.props;
     return entriesFetch.value.meta.next_page !== null;
