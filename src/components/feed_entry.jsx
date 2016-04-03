@@ -6,7 +6,7 @@ class FeedEntry extends React.Component {
     var image = "";
 
     if(this.props.image !== null){
-      image = <img className="responsive-img" src={`http://thumbs.picyo.me/300x300/smart/${this.props.image}`} />;
+      image = <img className="responsive-img" src={`https://thumbs.picyo.me/300x300/smart/${this.props.image}`} />;
     }
 
     return (
