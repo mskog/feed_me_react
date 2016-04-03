@@ -11,6 +11,11 @@ class Feed extends React.Component {
     router: PropTypes.object.isRequired
   };
 
+  hasMorePages(){
+    const {entriesFetch} = this.props;
+    return entriesFetch.value.meta.next_page !== null;
+  }
+
   currentPage(){
     let page = this.props.location.query.page;
     return page !== undefined ? page : 1;
@@ -22,13 +27,31 @@ class Feed extends React.Component {
   }
 
   render() {
+    const {entriesFetch} = this.props;
+    var entries = '';
+    var moreButton = '';
+
+    if (entriesFetch.fulfilled){
+      entries = <FeedEntriesList entries={entriesFetch.value['user_feed_entries']}/>
+      if (this.hasMorePages()) {
+        moreButton = <Button onClick={this.nextPage.bind(this)}>More...</Button>;
+      }
+    } else{
+      entries = <div className="center-align"><Preloader size="small" /></div>;
+    }
+
+
     return (
       <div>
-        <Button onClick={this.nextPage.bind(this)}>More...</Button>
-        <FeedEntriesList id={this.props.params.id} page={this.currentPage()}/>
+        {entries}
+        {moreButton}
       </div>
     );
   }
 }
 
 export default Feed;
+
+export default connect(props => ({
+  entriesFetch: `https://feedme.mskog.com/api/v1/feeds/${props.params.id}/entries.json?page=${props.location.query.page !== undefined ? props.location.query.page : 1}&user_email=mrcheese0@gmail.com&user_token=4Mxa-sFZ26RiMttynmQ5`
+}))(Feed)
