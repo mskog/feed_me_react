@@ -23,23 +23,23 @@ class Feed extends React.Component {
 
   render() {
     const {entriesFetch} = this.props;
-    var entries = '';
+    var values = [];
+    var loader = '';
     var moreButton = '';
 
     if (entriesFetch.fulfilled){
-      entries = <FeedEntriesList entries={entriesFetch.value['feed_entries']}/>
+      values = entriesFetch.value['feed_entries']
       if (this.hasMorePages()) {
         moreButton = <Link to={this.nextPage()}> <Button>More...</Button> </Link>
-
       }
     } else{
-      entries = <div className="center-align"><Preloader size="small" /></div>;
+      loader = <div className="center-align"><Preloader size="small" /></div>;
     }
-
 
     return (
       <div>
-        {entries}
+        <FeedEntriesList key={this.props.params.id} entries={values} />
+        {loader}
         {moreButton}
       </div>
     );
