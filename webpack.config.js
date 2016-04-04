@@ -36,6 +36,11 @@ const getPlugins = function (env) {
     case developmentEnvironment:
       plugins.push(new webpack.HotModuleReplacementPlugin());
       plugins.push(new webpack.NoErrorsPlugin());
+      plugins.push(new HtmlWebpackPlugin({
+        template: 'src/index.ejs',
+        inject: 'body',
+        hash: true
+      }));
       break;
   }
 
