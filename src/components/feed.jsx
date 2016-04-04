@@ -18,7 +18,7 @@ class Feed extends React.Component {
 
   nextPage(){
     let currentPath = this.props.location.pathname;
-    browserHistory.push(`${currentPath}?page=${parseInt(this.currentPage())+1}`);
+    return `${currentPath}?page=${parseInt(this.currentPage())+1}`;
   }
 
   render() {
@@ -29,7 +29,8 @@ class Feed extends React.Component {
     if (entriesFetch.fulfilled){
       entries = <FeedEntriesList entries={entriesFetch.value['feed_entries']}/>
       if (this.hasMorePages()) {
-        moreButton = <Button onClick={this.nextPage.bind(this)}>More...</Button>;
+        moreButton = <Link to={this.nextPage()}> <Button>More...</Button> </Link>
+
       }
     } else{
       entries = <div className="center-align"><Preloader size="small" /></div>;
