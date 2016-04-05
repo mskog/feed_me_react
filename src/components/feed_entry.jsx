@@ -12,10 +12,10 @@ class FeedEntry extends React.Component {
     return (
       <div className="card-panel">
         <div className="row">
-          <div className="col l3 hide-on-med-and-down">
+          <div className="col l3 m3 s12 hide-on-small-only">
             {image}
           </div>
-          <div className="col l9">
+          <div className="col l9 m9 s12">
             <a href={this.props.url} target="_blank">
               <h5 className="truncate">{this.props.title}</h5>
             </a>

@@ -11,11 +11,7 @@ class Feeds extends React.Component {
         </header>
         <main>
           <div className="container">
-            <div className="row">
-              <div className="col l12">
-                {this.props.children}
-              </div>
-            </div>
+            {this.props.children}
           </div>
         </main>
       </div>
