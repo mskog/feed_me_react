@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
-import FeedList from './feed_list';
+import FeedsContainer from '../containers/feeds_container';
 import TopNav from './top_nav';
 
 class Feeds extends React.Component {
@@ -9,7 +9,7 @@ class Feeds extends React.Component {
       <div>
         <header>
           <TopNav />
-          <FeedList />
+          <FeedsContainer />
         </header>
         <main>
           <div className="container">
