@@ -6,7 +6,7 @@ class FeedEntry extends React.Component {
     var image = "";
 
     if(this.props.image !== null){
-      image = <img className="lazyload responsive-img" data-sizes="auto" data-src={`https://thumbs.picyo.me/300x300/smart/${this.props.image}`} />;
+      image = <img className="lazyload responsive-img feedimage" data-sizes="auto" data-src={`https://thumbs.picyo.me/200x200/smart/${this.props.image}`} />;
     }
 
     return (

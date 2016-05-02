@@ -4,7 +4,19 @@ body {
 }
 
 @media (min-width: 991px) {
-  main {
+  main, header {
     padding-left: 240px;
+  }
+
+  .container {
+    width: 85%;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  img.feedimage {
+    height: 200px;
   }
 }
