@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import { router, Link, IndexLink } from 'react-router';
 import FeedsContainer from '../containers/feeds_container';
 import TopNav from './top_nav';
 
@@ -9,7 +9,7 @@ class Feeds extends React.Component {
       <div>
         <header>
           <TopNav />
-          <FeedsContainer />
+          <FeedsContainer currentId={this.props.params.id}/>
         </header>
         <main>
           <div className="container">

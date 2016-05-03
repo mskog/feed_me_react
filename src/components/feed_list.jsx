@@ -3,9 +3,10 @@ import FeedListItem from './feed_list_item';
 
 class FeedList extends React.Component {
   render() {
+    var currentId = this.props.currentId;
     var items = this.props.items.map(function(item, index) {
       return (
-        <FeedListItem {...item} key={item.id} />
+        <FeedListItem {...item} key={item.id} current={currentId == item.id} />
     )});
 
     return(

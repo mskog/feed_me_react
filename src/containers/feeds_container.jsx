@@ -14,7 +14,7 @@ class FeedsContainer extends React.Component {
     }
 
     return(
-      <FeedList items = {items} />
+      <FeedList items={items} currentId={this.props.currentId} />
     )
   }
 }

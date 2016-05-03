@@ -1,13 +1,22 @@
 import React, { PropTypes } from 'react';
-import { browserHistory, Link } from 'react-router';
+import { router, browserHistory, Link } from 'react-router';
 
 class FeedListItem extends React.Component {
   render() {
+    var link = '';
+    var linkContents = <span className='truncate'>{this.props.title}</span>;
+
+    if (this.props.current){
+      link = <a>{linkContents}</a>
+    }else{
+      link = <Link to={`/feeds/${this.props.id}`}>
+        {linkContents}
+      </Link>
+    }
+
     return (
       <li>
-        <Link to={`/feeds/${this.props.id}`}>
-          <span className='truncate'>{this.props.title}</span>
-        </Link>
+        {link}
       </li>
     );
   }
