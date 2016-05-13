@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import FeedListItem from './feed_list_item';
+import {Button} from 'react-materialize';
+import { router, browserHistory, Link } from 'react-router';
 
 class FeedList extends React.Component {
   render() {
@@ -13,6 +15,9 @@ class FeedList extends React.Component {
       <ul className="side-nav fixed">
         <h5 className="center-align">Feeds</h5>
         {items}
+        <li>
+          <Link to="/feeds/new">Add Feed</Link>
+        </li>
       </ul>
     )
   }
