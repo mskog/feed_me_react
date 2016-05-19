@@ -31,7 +31,7 @@ class FeedContainer extends React.Component {
     var loader = '';
 
     if (entriesFetch.fulfilled){
-      values = entriesFetch.value['feed_entries'];
+      values = entriesFetch.value['data'];
     } else{
       loader = <div className="center-align"><Preloader size="small" /></div>;
     }
@@ -48,5 +48,5 @@ class FeedContainer extends React.Component {
 export default FeedContainer;
 
 export default connect(props => ({
-  entriesFetch: `https://feedme.mskog.com/api/v1/user_feed_entries.json?user_feed_id=${props.params.id}&page=${props.location.query.page !== undefined ? props.location.query.page : 1}&user_email=mrcheese0@gmail.com&user_token=4Mxa-sFZ26RiMttynmQ5`
+  entriesFetch: `https://feedme.mskog.com/api/v1/feed_entries.json?user_feed_id=${props.params.id}&page=${props.location.query.page !== undefined ? props.location.query.page : 1}&user_email=mrcheese0@gmail.com&user_token=4Mxa-sFZ26RiMttynmQ5`
 }))(FeedContainer)

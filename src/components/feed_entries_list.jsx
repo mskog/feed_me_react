@@ -5,7 +5,7 @@ import {Preloader} from 'react-materialize';
 class FeedEntriesList extends React.Component {
   render() {
     let entries = this.props.entries.map(function(entry, index) {
-      return <FeedEntry {...entry} key={entry.id} />;
+      return <FeedEntry {...entry.attributes} id={entry.id} key={entry.id} />;
     });
 
     return(

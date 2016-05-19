@@ -8,7 +8,7 @@ class FeedList extends React.Component {
     var currentId = this.props.currentId;
     var items = this.props.items.map(function(item, index) {
       return (
-        <FeedListItem {...item} key={item.id} current={currentId == item.id} />
+        <FeedListItem {...item.attributes} id={item.id} key={item.id} current={currentId == item.id} />
     )});
 
     return(

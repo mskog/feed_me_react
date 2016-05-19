@@ -14,7 +14,7 @@ class FeedsContainer extends React.Component {
   componentWillReceiveProps(props) {
     const {feedsFetch} = props;
     if (feedsFetch.fulfilled){
-      this.setState({items: feedsFetch.value['user_feeds']});
+      this.setState({items: feedsFetch.value['data']});
     }
   }
 
