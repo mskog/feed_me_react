@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import FeedListItem from './feed_list_item';
-import {Button} from 'react-materialize';
-import { router, browserHistory, Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 
 class FeedList extends React.Component {
   render() {

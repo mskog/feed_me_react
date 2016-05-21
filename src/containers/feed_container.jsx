@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch'
 import {Preloader, Button} from 'react-materialize';
 
-import Feed from '../components/feed';
+import Feed from '../components/feed/feed';
 
 class FeedContainer extends React.Component {
   hasMorePages(){

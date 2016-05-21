@@ -3,7 +3,7 @@ import { router, Link, IndexLink } from 'react-router';
 import { connect, PromiseState } from 'react-refetch'
 import TopNav from '../components/top_nav';
 import {Preloader} from 'react-materialize';
-import FeedList from '../components/feed_list';
+import FeedList from '../components/feeds/feed_list';
 
 class FeedsContainer extends React.Component {
   constructor(props) {
