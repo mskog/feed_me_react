@@ -6,11 +6,11 @@ import Feed from '../components/feed';
 
 class FeedContainer extends React.Component {
   hasMorePages(){
-    const {entriesFetch} = this.props;
+    const entriesFetch = this.props;
     if (entriesFetch.fulfilled){
       return entriesFetch.value.meta.next_page !== null;
     }
-    else{
+    else {
       return false;
     }
   }
